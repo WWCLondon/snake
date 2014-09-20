@@ -1,6 +1,5 @@
 (ns snake.dynamic
-  (:require [quil.core :as q])
-  (:import java.awt.event.KeyEvent))
+  (:require [quil.core :as q]))
 
 (def red 1)
 (def orange 25)
@@ -50,13 +49,9 @@
 (defn setup []
   (q/smooth)
   (q/color-mode :hsb)
-  (q/frame-rate 10))
+  (q/frame-rate 12))
 
 (def direction-from-key {
-                         KeyEvent/VK_UP up
-                         KeyEvent/VK_DOWN down
-                         KeyEvent/VK_LEFT left
-                         KeyEvent/VK_RIGHT right
                          \w up
                          \s down
                          \a left
