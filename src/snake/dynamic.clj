@@ -1,5 +1,6 @@
 (ns snake.dynamic
-  (:require [quil.core :as q]))
+  (:require [quil.core :as q])
+  (:import java.awt.event.KeyEvent))
 
 (def red 1)
 (def orange 25)
@@ -9,7 +10,7 @@
 (def purple 200)
 
 (def window-size 800)
-(def grid-size 10)
+(def grid-size 50)
 (def cell-size (/ window-size grid-size))
 
 (def snake (atom nil))
@@ -33,13 +34,14 @@
 (def down [0 1])
 (def left [-1 0])
 (def right [1 0])
+(def direction (atom up))
 
 (defn update-snake [snake direction]
-  (conj (rest snake)
-        (vec+ (last snake))))
+  (concat (rest snake)
+          [(vec+ (last snake) direction)]))
 
 (defn move [snake direction]
-  (swap! snake #(update-snake % direction)))
+  (swap! snake update-snake direction))
 
 (defn draw-cell [[x y] hue]
   (q/fill (q/color hue 255 255))
@@ -48,14 +50,27 @@
 (defn setup []
   (q/smooth)
   (q/color-mode :hsb)
-  (q/frame-rate 1))
+  (q/frame-rate 10))
 
-(reset-snake)
-(move snake down)
+(def direction-from-key {
+                         KeyEvent/VK_UP up
+                         KeyEvent/VK_DOWN down
+                         KeyEvent/VK_LEFT left
+                         KeyEvent/VK_RIGHT right
+                         \w up
+                         \s down
+                         \a left
+                         \d right})
 
+(defn key-pressed []
+  (let [key (q/raw-key)]
+    (println key)
+    (if-let [new-direction (direction-from-key key)]
+      (reset! direction new-direction))))
 
 (defn draw []
   (q/background 0)
+  (move snake @direction)
   (dosync
    (doseq [cell @snake]
      (draw-cell cell red))))
