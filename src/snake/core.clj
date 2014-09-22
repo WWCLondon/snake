@@ -9,7 +9,7 @@
 (def purple 200)
 
 (def window-size 800)
-(def grid-size 50)
+(def grid-size 10)
 (def cell-size (/ window-size grid-size))
 
 (def snake (atom nil))
@@ -54,7 +54,7 @@
 (defn setup []
   (q/smooth)
   (q/color-mode :hsb)
-  (q/frame-rate 12))
+  (q/frame-rate 1))
 
 (def direction-from-key {
                          \w up
