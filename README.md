@@ -15,7 +15,7 @@ Get a feel for drawing by updateing the `draw` function, you may want to use `do
 You will need to choose an appropriate representation for the game world.
 You can use the `draw` function as the 'tick' in the world and have it update the snakes position and draw the appropriate cells with every tick.
 
-### Make the snake move 50 R 50D 50L 50U
+### Make the snake move around the screen in a square
 
 ## Questions
 * What happens at the edges of the drawing?
