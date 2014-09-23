@@ -8,21 +8,21 @@ We are going to try and build the famous 'snake' game
 
 ## Tasks
 
-# Colour in some cells
+### Colour in some cells
 Get a feel for drawing by updateing the `draw` function, you may want to use `doseq` for looping over a list of things and doing side-effects.
 
-# Draw a snake and have it move to the right
+### Draw a snake and have it move to the right
 You will need to choose an appropriate representation for the game world.
 You can use the `draw` function as the 'tick' in the world and have it update the snakes position and draw the appropriate cells with every tick.
 
-# Make the snake move 50 R 50D 50L 50U
+### Make the snake move 50 R 50D 50L 50U
 
-# Questions
-## What happens at the edges of the drawing?
-## Can you move left if you are heading right?
-## What is the best gridsize and framerate for the game?
+## Questions
+### What happens at the edges of the drawing?
+### Can you move left if you are heading right?
+### What is the best gridsize and framerate for the game?
 
-# Take input
+### Take input
 Add `:key-typed key-pressed` to `q/defsketch` and create a function called `key-pressed` that will get called with every keypress.
 Start off using normal keys (the arrow keys are tricky)
 ```
@@ -33,13 +33,13 @@ Start off using normal keys (the arrow keys are tricky)
     ))
 ```
 
-# Add food
+### Add food
 Food should appear at one point and your snake should grow if it eats it, more should appear at a random point when some is eaten
 
-# Battle snake
+### Battle snake
 Try and go head to head with another player
 
-# Networked battle snake
+### Networked battle snake
 Run a server and let people connect as clients
 
 ## Usage
