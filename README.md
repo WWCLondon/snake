@@ -18,9 +18,9 @@ You can use the `draw` function as the 'tick' in the world and have it update th
 ### Make the snake move 50 R 50D 50L 50U
 
 ## Questions
-### What happens at the edges of the drawing?
-### Can you move left if you are heading right?
-### What is the best gridsize and framerate for the game?
+* What happens at the edges of the drawing?
+* Can you move left if you are heading right?
+* What is the best gridsize and framerate for the game?
 
 ### Take input
 Add `:key-typed key-pressed` to `q/defsketch` and create a function called `key-pressed` that will get called with every keypress.
