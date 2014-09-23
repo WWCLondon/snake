@@ -12,6 +12,14 @@
 (def grid-size 10)
 (def cell-size (/ window-size grid-size))
 
+(def snake (atom [1 2 3 4 5]))
+
+(swap! snake (fn [s]
+               (map inc s)))
+
+;@snake
+;(map inc @snake)
+
 (defn draw-cell [[x y] hue]
   (q/fill (q/color hue 255 255))
   (q/rect (* cell-size x) (* cell-size y) cell-size cell-size))
@@ -23,10 +31,15 @@
 
 (defn draw []
   (q/background 0)
-  (draw-cell [1 2] red)
-  (draw-cell [1 3] red)
+  (doseq [x @snake]
+  (draw-cell [1 x] red)
+   )
+
+
   ; Add stuff here
   )
+
+
 
 (q/defsketch snake-game
   :title "Snake"
